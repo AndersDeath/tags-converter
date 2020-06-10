@@ -4,6 +4,10 @@
 
 `https://tags-converter.vnbstudio.ru/`
 
+## Video demonstration
+
+`https://youtu.be/sydgpSN2sT4`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.2.
 
 ## Development server

@@ -1,0 +1,80 @@
+{
+  "translateVersion": "20.03.24.15",
+  "hello": "hello",
+  "languages": {
+    "language": "Language",
+    "ru": "Russian",
+    "en": "English"
+  },
+
+  "common": {
+    "select": "Select",
+    "actions": {
+      "ok": "Ok",
+      "cancel": "Cancel",
+      "close": "Close",
+      "add": "Add",
+      "save": "Save"
+    },
+    "tooltips": {
+      "delete": "Delete it",
+      "addRubric": "Add rubric"
+    }
+  },
+  "tag_converter": {
+    "mobile": {
+      "version": {
+        "title": "Version",
+        "num": "20.03.25.17"
+      },
+      "titles": {
+        "converter": "Converter",
+        "history": "History",
+        "collections": "Collections",
+        "settings": "Settings"
+      }
+    },
+    "title": "Tag converter",
+    "subtitle": "universal, multi-functional tag converter with history",
+    "convert": "Convert",
+    "separator": "Seprator",
+    "separator_select": "Select the word separator that you want to convert",
+    "input": "Input data for convertation",
+    "output": "Convertation result",
+    "comma": "Comma",
+    "space": "Space",
+    "hash": "Hash",
+    "actions": {
+      "copy": "Copy",
+      "add_to_collections": "Add to collections",
+      "delete": "Delete",
+      "clear": "Clear"
+    },
+    "tooltips": {},
+    "collections": {
+      "title": "Collections",
+      "description": "Up to 5 collections of saved tags",
+      "input": "",
+      "output": ""
+    },
+    "history": {
+      "title": "Conversion History",
+      "description": "Up to 5 last conversions",
+      "input": "Input data",
+      "output": "Conversion result"
+    },
+    "modes": {
+      "comma_hash": "Comma to hash",
+      "hash_comma": "Hash to comma",
+      "space_comma": "Space to comma",
+      "space_hash": "Space to hash",
+      "hash_space": "Hash to space",
+      "comma_space": "Comma to space"
+    }
+  },
+  "errors": {
+    "AA_000001": "Category is existed",
+    "AA_000002": "Skill is existed",
+    "AA_000003": "Rubric is existed"
+  }
+}

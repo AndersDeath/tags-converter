@@ -1,0 +1,13 @@
+<div fxLayout="row">
+  <mat-form-field fxFlex="100%" class="converter-input-field">
+    <textarea
+      matInput
+      placeholder="{{ placeholder }}"
+      [(ngModel)]="model"
+      (ngModelChange)="change($event)"
+    ></textarea>
+  </mat-form-field>
+</div>
+<div fxLayout="row" fxLayoutGap="10px">
+  <ng-content></ng-content>
+</div>

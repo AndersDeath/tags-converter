@@ -1,0 +1,49 @@
+:host {
+  .main-card {
+    width: 80%;
+    // padding: 20px;
+  }
+
+  .example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+
+  textarea {
+    min-height: 100px;
+    height: auto;
+    width: 100%;
+  }
+
+  .example-radio-button {
+    margin: 5px 5px 5px 15px;
+  }
+
+  .accordeon-collection .mat-expansion-panel-header-title,
+  .accordeon-collection .mat-expansion-panel-header-description {
+    flex-basis: 0;
+  }
+
+  .accordeon-collection .mat-expansion-panel-header-title,
+  .accordeon-collection .mat-expansion-panel-header-description {
+    align-items: center;
+
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
+
+  .accordeon-collection .mat-expansion-panel-header-description {
+    text-align: right;
+  }
+
+  .border-right-separator {
+    border-right: 1px inset #dfdfdf;
+  }
+
+  .padding-top-20 {
+    padding-top: 20px
+  }
+
+}

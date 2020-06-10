@@ -1,0 +1,182 @@
+<mat-card class="main-card">
+  <tags-converter-header
+    title="{{ 'tag_converter.title' | translate }}"
+    subtitle="{{ 'tag_converter.subtitle' | translate }} {{ version }}"
+  >
+  </tags-converter-header>
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <div fxLayout="column" fxFlex="48%">
+        <tags-converter-input
+          [model]="tags.input"
+          (modelChange)="tagsChange($event, 'input')"
+          placeholder="{{ 'tag_converter.input' | translate }}"
+        >
+          <button
+            color="primary"
+            (click)="convert()"
+            [disabled]="tags.input.length === 0"
+            mat-raised-button
+          >
+            <mat-icon>play_circle_filled</mat-icon>
+            {{ "tag_converter.convert" | translate }}
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="tags.input.length === 0"
+            (click)="clear('input')"
+          >
+            <mat-icon>clear</mat-icon>
+            {{ "tag_converter.actions.clear" | translate }}
+          </button>
+        </tags-converter-input>
+      </div>
+      <div fxLayout="column" fxFlex="48%">
+        <div fxLayout="row">
+          <tags-converter-input
+            class="w100p"
+            [model]="tags.output"
+            (modelChange)="tagsChange($event, 'output')"
+            placeholder="{{ 'tag_converter.output' | translate }}"
+          >
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="tags.output.length === 0"
+              (click)="copyToClipboard(tags.output)"
+            >
+              <mat-icon>file_copy</mat-icon>
+              {{ "tag_converter.actions.copy" | translate }}
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="tags.output.length === 0"
+              (click)="addCollection()"
+            >
+              <mat-icon>add_circle</mat-icon>
+              {{ "tag_converter.actions.add_to_collections" | translate }}
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              [disabled]="tags.output.length === 0"
+              (click)="clear('output')"
+            >
+              <mat-icon>clear</mat-icon>
+              {{ "tag_converter.actions.clear" | translate }}
+            </button>
+          </tags-converter-input>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+  <tags-converter-header
+    title="{{ 'tag_converter.separator' | translate }}"
+    subtitle="{{ 'tag_converter.separator_select' | translate }}"
+  >
+  </tags-converter-header>
+  <mat-card-content>
+    <tags-converter-selector
+      fxLayout="row"
+      (modelChange)="selectorChange($event)"
+    ></tags-converter-selector>
+  </mat-card-content>
+  <mat-card-actions fxLayoutGap="10px"> </mat-card-actions>
+  <mat-card-content>
+    <mat-accordion class="accordeon-collection">
+      <tags-converter-expansion-panel
+        title="{{ 'tag_converter.collections.title' | translate }}"
+        description="{{ 'tag_converter.collections.description' | translate }}"
+        icon="bookmarks"
+      >
+        <div fxLayout="column" fxLayoutGap="10px">
+          <mat-card *ngFor="let item of collections" class="w100p">
+            <mat-card-content>
+              {{ item.output }}
+            </mat-card-content>
+            <mat-card-actions fxLayoutGap="10px">
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="copyToClipboard(item.output)"
+              >
+                <mat-icon>file_copy</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                color="primary"
+                (click)="removeCollection(item.id)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </tags-converter-expansion-panel>
+      <tags-converter-expansion-panel
+        title="{{ 'tag_converter.history.title' | translate }}"
+        description="{{ 'tag_converter.history.description' | translate }}"
+        icon="history"
+      >
+        <div fxLayout="column" fxLayoutGap="10px">
+          <mat-card fxLayout="row" fxFlex="100%" *ngFor="let item of history">
+            <div fxLayout="column" fxFlex="100%">
+              <div fxLayout="row" fxFlex="100%">
+                <h4>
+                  {{ item.date | date: "H:mm:ss dd.MM.yyyy" }}
+                </h4>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="space-between" fxFlex="100%">
+                <mat-divider></mat-divider>
+                <div
+                  fxLayout="column"
+                  fxFlex="49%"
+                  class="padding-top-20 border-right-separator"
+                >
+                  <mat-card-header>
+                    <mat-card-subtitle>
+                      {{ "tag_converter.history.input" | translate }}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    {{ item.input }}
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button
+                      mat-icon-button
+                      color="primary"
+                      (click)="copyToClipboard(item.input)"
+                    >
+                      <mat-icon>file_copy</mat-icon>
+                    </button>
+                  </mat-card-actions>
+                </div>
+                <div fxLayout="column" fxFlex="49%" class="padding-top-20">
+                  <mat-card-header>
+                    <mat-card-subtitle>
+                      {{ "tag_converter.history.output" | translate }}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    {{ item.output }}
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button
+                      mat-icon-button
+                      color="primary"
+                      (click)="copyToClipboard(item.output)"
+                    >
+                      <mat-icon>file_copy</mat-icon>
+                    </button>
+                  </mat-card-actions>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </tags-converter-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+</mat-card>

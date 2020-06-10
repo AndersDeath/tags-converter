@@ -1,0 +1,21 @@
+<div fxLayout="column" fxFlex="48%">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="options.left"
+    (ngModelChange)="optionsChange($event, 'left')" vertical>
+    <mat-button-toggle value="space">{{ 'tag_converter.space' | translate}} (_)</mat-button-toggle>
+    <mat-button-toggle value="comma">{{ 'tag_converter.comma' | translate}} (,)</mat-button-toggle>
+    <mat-button-toggle value="hash">{{ 'tag_converter.hash' | translate}} (#)</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<div fxLayout="column" fxFlex="4%" style="min-height: 100%; font-size: 1.3em;">
+  <div fxLayout="row" fxFlexFill fxLayoutAlign="center center">
+    =>
+  </div>
+</div>
+<div fxLayout="column" fxFlex="48%">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="options.right"
+    (ngModelChange)="optionsChange($event, 'right')" vertical>
+    <mat-button-toggle value="space">{{ 'tag_converter.space' | translate}} (_)</mat-button-toggle>
+    <mat-button-toggle value="comma">{{ 'tag_converter.comma' | translate}} (,)</mat-button-toggle>
+    <mat-button-toggle value="hash">{{ 'tag_converter.hash' | translate}} (#)</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

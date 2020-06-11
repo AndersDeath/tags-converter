@@ -2,11 +2,13 @@
 
 ## Demo
 
-`https://tags-converter.vnbstudio.ru/`
+https://tags-converter.vnbstudio.ru
 
 ## Video demonstration
 
-`https://youtu.be/sydgpSN2sT4`
+https://youtu.be/sydgpSN2sT4
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.2.
 

@@ -2,37 +2,38 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "defaultCollection": "@nrwl/nest"
   },
   "newProjectRoot": "",
   "projects": {
-    "TagConverter": {
+    "tag-converter": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/TagConverter",
-      "sourceRoot": "apps/TagConverter/src",
+      "root": "apps/tag-converter",
+      "sourceRoot": "apps/tag-converter/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/TagConverter",
-            "index": "apps/TagConverter/src/index.html",
-            "main": "apps/TagConverter/src/main.ts",
-            "polyfills": "apps/TagConverter/src/polyfills.ts",
-            "tsConfig": "apps/TagConverter/tsconfig.app.json",
+            "outputPath": "dist/apps/tag-converter",
+            "index": "apps/tag-converter/src/index.html",
+            "main": "apps/tag-converter/src/main.ts",
+            "polyfills": "apps/tag-converter/src/polyfills.ts",
+            "tsConfig": "apps/tag-converter/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/TagConverter/src/favicon.ico",
-              "apps/TagConverter/src/assets"
+              "apps/tag-converter/src/favicon.ico",
+              "apps/tag-converter/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/TagConverter/src/styles.scss"
+              "apps/tag-converter/src/styles.scss"
             ],
             "scripts": []
           },
@@ -40,8 +41,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/TagConverter/src/environments/environment.ts",
-                  "with": "apps/TagConverter/src/environments/environment.prod.ts"
+                  "replace": "apps/tag-converter/src/environments/environment.ts",
+                  "with": "apps/tag-converter/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -70,34 +71,35 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TagConverter:build"
+            "browserTarget": "tag-converter:build",
+            "proxyConfig": "apps/tag-converter/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TagConverter:build:production"
+              "browserTarget": "tag-converter:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TagConverter:build"
+            "browserTarget": "tag-converter:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/TagConverter/src/test.ts",
-            "polyfills": "apps/TagConverter/src/polyfills.ts",
-            "tsConfig": "apps/TagConverter/tsconfig.spec.json",
-            "karmaConfig": "apps/TagConverter/karma.conf.js",
+            "main": "apps/tag-converter/src/test.ts",
+            "polyfills": "apps/tag-converter/src/polyfills.ts",
+            "tsConfig": "apps/tag-converter/tsconfig.spec.json",
+            "karmaConfig": "apps/tag-converter/karma.conf.js",
             "assets": [
-              "apps/TagConverter/src/favicon.ico",
-              "apps/TagConverter/src/assets"
+              "apps/tag-converter/src/favicon.ico",
+              "apps/tag-converter/src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/TagConverter/src/styles.scss"
+              "apps/tag-converter/src/styles.scss"
             ],
             "scripts": []
           }
@@ -106,43 +108,94 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/TagConverter/tsconfig.app.json",
-              "apps/TagConverter/tsconfig.spec.json"
+              "apps/tag-converter/tsconfig.app.json",
+              "apps/tag-converter/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "TagConverter-e2e": {
+    "tag-converter-e2e": {
       "projectType": "application",
-      "root": "apps/TagConverter-e2e",
+      "root": "apps/tag-converter-e2e",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "apps/TagConverter-e2e/protractor.conf.js",
-            "devServerTarget": "TagConverter:serve"
+            "protractorConfig": "apps/tag-converter-e2e/protractor.conf.js",
+            "devServerTarget": "tag-converter:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "TagConverter:serve:production"
+              "devServerTarget": "tag-converter:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/TagConverter-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": "apps/tag-converter-e2e/tsconfig.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/api/tsconfig.app.json",
+              "apps/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/api/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "tsConfig": "apps/api/tsconfig.spec.json",
+            "passWithNoTests": true
           }
         }
       }
     }
   },
-  "defaultProject": "TagConverter"
+  "defaultProject": "tag-converter"
 }

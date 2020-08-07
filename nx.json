@@ -11,10 +11,13 @@
     "nx.json": "*"
   },
   "projects": {
-    "TagConverter": {
+    "tag-converter": {
       "tags": []
     },
-    "TagConverter-e2e": {
+    "tag-converter-e2e": {
+      "tags": []
+    },
+    "api": {
       "tags": []
     }
   }

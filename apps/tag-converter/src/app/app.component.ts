@@ -21,7 +21,7 @@ export class AppComponent {
         translate.setDefaultLang(this.lang);
   }
 
-    changeLang(code) {
+  public changeLang(code) {
     this.translate.setDefaultLang(code);
     this.lang = code;
     localStorage.setItem('language', code);

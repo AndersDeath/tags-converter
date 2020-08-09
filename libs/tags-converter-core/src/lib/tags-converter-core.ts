@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
+
 @Injectable()
-export class TagsService {
-  defaultTable = { collections: [], history: [] };
+export class TagsConverterCoreService {
+  public modes = ['comma_hash', 'hash_comma', 'space_comma', 'space_hash', 'hash_space', 'comma_space'];
+
+  private correspondenceTable = {
+    space : ' ',
+    comma: ',',
+    hash: '#'
+  };
 
   constructor() {
     this.checkSearchTbl();
   }
+
+  private defaultTable = { collections: [], history: [] };
 
   public checkSearchTbl() {
     const cleanTbl = this.defaultTable;
@@ -52,7 +61,7 @@ export class TagsService {
     let data = this.getData('collections');
     let k = '';
     data = data.filter((item, key) => {
-      if(id !== item.id) {
+      if (id !== item.id) {
         return item;
       } else {
         k = key;
@@ -61,4 +70,33 @@ export class TagsService {
     this.updateCollections(data);
   }
 
+  public convertationHandler(option, input: string): string {
+    const from = this.correspondenceTable[option.split('_')[0]];
+    const to = this.correspondenceTable[option.split('_')[1]];
+    let newString = '';
+    if (to === '#' && input.trim().search((to === ',' ? ', ' : to)) !== -1) {
+      return input;
+    }
+    if (input.trim().search(`${from}`) !== -1) {
+      input.split(from).forEach(e => {
+        if (e.trim() !== '') {
+          newString += this.outputStringPrepare(e, to);
+        }
+      });
+      return this.prepareStringToReturn(newString, to);
+    }
+    return input;
+  }
+
+  private outputStringPrepare(e, to) {
+    return (to !== ',' ? ' ' : '') + (to !== ' ' ? to : '') + (to === ',' ? ' ' : '') +
+      e
+        .trim()
+        .replace(/ +/g, '')
+        .toLowerCase();
+  }
+
+  private prepareStringToReturn(newString, to) {
+    return ((to === ',' || to === ' ') ? newString.substr(1).trim() : newString.trim());
+  }
 }

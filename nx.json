@@ -19,6 +19,15 @@
     },
     "api": {
       "tags": []
+    },
+    "tags-converter-material": {
+      "tags": []
+    },
+    "tags-converter-core": {
+      "tags": []
+    },
+    "common-material": {
+      "tags": []
     }
   }
 }

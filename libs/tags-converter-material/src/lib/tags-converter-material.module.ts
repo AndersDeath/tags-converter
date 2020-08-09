@@ -1,7 +1,9 @@
+
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../../shared/modules/material.module';
+import { CommonMaterialModule } from '@tag-converter/common-material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -11,9 +13,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TagsConverterMaterialComponent } from './components/tags-converter-material/tags-converter-material.component';
 import { TagsConverterHeaderComponent } from './components/tags-converter-header/tags-converter-header.component';
 import { TagsConverterInputComponent } from './components/tags-converter-input/tags-converter-input.component';
-import { TagsConverterCoreService } from '../tags-converter-core-service';
 import { TagsConverterSelectorComponent } from './components/tags-converter-selector/tags-converter-selector.component';
 import { TagsConverterExpansionPanelComponent } from './components/tags-converter-expansion-panel/tags-converter-expansion-panel.component';
+
+import { TagsConverterCoreService } from '@tag-converter/tags-converter-core';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -28,11 +31,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TagsConverterExpansionPanelComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule,
+    CommonMaterialModule,
     FlexLayoutModule,
     HttpClientModule,
     TranslateModule.forRoot({

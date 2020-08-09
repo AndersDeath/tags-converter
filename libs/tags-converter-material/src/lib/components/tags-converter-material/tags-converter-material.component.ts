@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TagsConverterCoreService } from '../../../tags-converter-core-service';
+import { TagsConverterCoreService } from '@tag-converter/tags-converter-core';
 
 @Component({
   // tslint:disable-next-line:component-selector

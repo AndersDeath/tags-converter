@@ -11,11 +11,16 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {},
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@tag-converter/tags-converter-material": [
+        "libs/tags-converter-material/src/index.ts"
+      ],
+      "@tag-converter/tags-converter-core": [
+        "libs/tags-converter-core/src/index.ts"
+      ],
+      "@tag-converter/common-material": ["libs/common-material/src/index.ts"]
+    },
     "rootDir": "."
   },
   "angularCompilerOptions": {

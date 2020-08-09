@@ -5,9 +5,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TagsConverterMaterialModule } from '../modules/tags-converter-material';
-import { TagsService } from '../services/tags.service';
-import { MaterialModule } from '../shared/modules/material.module';
+import { TagsConverterMaterialModule } from '@tag-converter/tags-converter-material';
+import { CommonMaterialModule } from '@tag-converter/common-material';
 import {
   TranslateModule,
   TranslateLoader,
@@ -28,7 +27,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HttpClientModule,
     BrowserAnimationsModule,
     TagsConverterMaterialModule,
-    MaterialModule,
+    CommonMaterialModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,7 +36,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       },
     }),
   ],
-  providers: [TagsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -137,4 +137,4 @@ import { OverlayModule } from '@angular/cdk/overlay';
   providers: [],
   bootstrap: []
 })
-export class MaterialModule { }
+export class CommonMaterialModule { }

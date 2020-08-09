@@ -195,6 +195,99 @@
           }
         }
       }
+    },
+    "tags-converter-material": {
+      "projectType": "library",
+      "root": "libs/tags-converter-material",
+      "sourceRoot": "libs/tags-converter-material/src",
+      "prefix": "tag-converter",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tags-converter-material/tsconfig.lib.json",
+              "libs/tags-converter-material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/tags-converter-material/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tags-converter-material/jest.config.js",
+            "tsConfig": "libs/tags-converter-material/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/tags-converter-material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "tags-converter-core": {
+      "root": "libs/tags-converter-core",
+      "sourceRoot": "libs/tags-converter-core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tags-converter-core/tsconfig.lib.json",
+              "libs/tags-converter-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/tags-converter-core/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tags-converter-core/jest.config.js",
+            "tsConfig": "libs/tags-converter-core/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "common-material": {
+      "projectType": "library",
+      "root": "libs/common-material",
+      "sourceRoot": "libs/common-material/src",
+      "prefix": "tag-converter",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common-material/tsconfig.lib.json",
+              "libs/common-material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/common-material/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common-material/jest.config.js",
+            "tsConfig": "libs/common-material/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/common-material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "defaultProject": "tag-converter"

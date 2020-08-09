@@ -19,6 +19,17 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "allowedCommonJsDependencies": [
+            "firebase",
+            "firebase/app",
+            "@firebase/app",
+            "@firebase/auth",
+            "@firebase/database",
+            "@firebase/firestore",
+            "@firebase/functions",
+            "@firebase/performance",
+            "@firebase/remote-config"
+          ],
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/tag-converter",
@@ -113,6 +124,10 @@
             ],
             "exclude": ["**/node_modules/**"]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
@@ -204,6 +219,17 @@
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
+          "allowedCommonJsDependencies": [
+            "firebase",
+            "firebase/app",
+            "@firebase/app",
+            "@firebase/auth",
+            "@firebase/database",
+            "@firebase/firestore",
+            "@firebase/functions",
+            "@firebase/performance",
+            "@firebase/remote-config"
+          ],
           "options": {
             "tsConfig": [
               "libs/tags-converter-material/tsconfig.lib.json",
@@ -239,6 +265,17 @@
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
+          "allowedCommonJsDependencies": [
+            "firebase",
+            "firebase/app",
+            "@firebase/app",
+            "@firebase/auth",
+            "@firebase/database",
+            "@firebase/firestore",
+            "@firebase/functions",
+            "@firebase/performance",
+            "@firebase/remote-config"
+          ],
           "options": {
             "tsConfig": [
               "libs/tags-converter-core/tsconfig.lib.json",
@@ -265,6 +302,17 @@
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
+          "allowedCommonJsDependencies": [
+            "firebase",
+            "firebase/app",
+            "@firebase/app",
+            "@firebase/auth",
+            "@firebase/database",
+            "@firebase/firestore",
+            "@firebase/functions",
+            "@firebase/performance",
+            "@firebase/remote-config"
+          ],
           "options": {
             "tsConfig": [
               "libs/common-material/tsconfig.lib.json",

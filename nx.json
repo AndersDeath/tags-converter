@@ -12,22 +12,22 @@
   },
   "projects": {
     "tag-converter": {
-      "tags": []
+      "tags": ["scope:tag-converter", "type:application"]
     },
     "tag-converter-e2e": {
-      "tags": []
+      "tags": ["scope:tag-converter-e2e", "type:e2e"]
     },
     "api": {
-      "tags": []
+      "tags": ["scope:api", "type:application"]
     },
     "tags-converter-material": {
-      "tags": []
+      "tags": ["scope:tags-converter-material", "type:feature"]
     },
     "tags-converter-core": {
-      "tags": []
+      "tags": ["scope:tags-converter-core", "type:feature"]
     },
     "common-material": {
-      "tags": []
+      "tags": ["scope:common-material", "type:ui"]
     }
   }
 }

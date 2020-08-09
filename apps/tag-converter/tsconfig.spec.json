@@ -1,18 +1,24 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "allowJs": true,
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "module": "commonjs",
     "outDir": "../../dist/out-tsc",
     "types": [
-      "jasmine",
+      "jest",
+      "jsdom",
       "node"
     ]
   },
+  "extends": "./tsconfig.json",
   "files": [
-    "src/test.ts",
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "**/*.spec.ts",
+    "**/*.d.ts"
   ]
 }

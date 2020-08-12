@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MODES, STORAGE } from '../interfaces';
 
-
+/**
+ * Core method collection for tag converter
+ */
 @Injectable()
 export class TagsConverterCoreService {
   public modes = Object.keys(MODES);

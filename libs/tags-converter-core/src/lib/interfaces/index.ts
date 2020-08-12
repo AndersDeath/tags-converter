@@ -18,7 +18,6 @@ export const STORAGE: IStorage = {
   TAGS: 'Tags'
 };
 
-
 export enum MODES {
   comma_hash = 'comma_hash',
   hash_comma = 'hash_comma',

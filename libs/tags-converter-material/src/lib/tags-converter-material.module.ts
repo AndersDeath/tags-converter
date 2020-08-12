@@ -18,10 +18,17 @@ import { TagsConverterExpansionPanelComponent } from './components/tags-converte
 
 import { TagsConverterCoreService } from '@tag-converter/tags-converter-core';
 
+/**
+ * Http Loader Factory for Translate Http
+ * @param httpClient angular http client
+ */
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
+/**
+ * Tags converter material module
+ */
 @NgModule({
   declarations: [
     TagsConverterMaterialComponent,

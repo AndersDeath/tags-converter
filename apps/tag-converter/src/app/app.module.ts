@@ -13,16 +13,21 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 
-
+/**
+ * Http Loader Factory for Translate Http
+ * @param httpClient angular http client
+ */
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
+/**
+ * App module
+ */
 @NgModule({
   declarations: [
     AppComponent

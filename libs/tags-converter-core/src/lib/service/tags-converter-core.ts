@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { MODES, STORAGE } from '../interfaces';
+
 
 @Injectable()
 export class TagsConverterCoreService {
-  public modes = ['comma_hash', 'hash_comma', 'space_comma', 'space_hash', 'hash_space', 'comma_space'];
+  public modes = Object.keys(MODES);
 
   private correspondenceTable = {
     space : ' ',
@@ -10,22 +12,23 @@ export class TagsConverterCoreService {
     hash: '#'
   };
 
+  private defaultTable = { collections: [], history: [] };
+
   constructor() {
     this.checkSearchTbl();
   }
 
-  private defaultTable = { collections: [], history: [] };
 
-  public checkSearchTbl() {
+  public checkSearchTbl(): void {
     const cleanTbl = this.defaultTable;
-    const tbl = localStorage.getItem('Tags');
+    const tbl = localStorage.getItem(STORAGE.TAGS);
     if (tbl === null) {
-      localStorage.setItem('Tags', JSON.stringify(cleanTbl));
+      localStorage.setItem(STORAGE.TAGS, JSON.stringify(cleanTbl));
     }
   }
 
   public getData(type: string) {
-    const tbl = localStorage.getItem('Tags');
+    const tbl = localStorage.getItem(STORAGE.TAGS);
     if (type === 'all') {
       return JSON.parse(tbl);
     } else {
@@ -40,24 +43,24 @@ export class TagsConverterCoreService {
       tbl[type].splice(0, 1);
     }
     tbl[type].push(obj);
-    localStorage.setItem('Tags', JSON.stringify(tbl));
+    localStorage.setItem(STORAGE.TAGS, JSON.stringify(tbl));
   }
 
   public updateCollections(data) {
     const storage = this.getData('all');
     storage.collections = data;
-    localStorage.setItem('Tags', JSON.stringify(storage));
+    localStorage.setItem(STORAGE.TAGS, JSON.stringify(storage));
   }
 
-  public cleanAll() {
-    localStorage.setItem('Tags', JSON.stringify(this.defaultTable));
+  public cleanAll(): void {
+    localStorage.setItem(STORAGE.TAGS, JSON.stringify(this.defaultTable));
   }
 
   public getId(): string {
     return `id${Date.now() + Math.random() * (Date.now() - 0) + 0}`;
   }
 
-  public removeCollectionById(id) {
+  public removeCollectionById(id): void {
     let data = this.getData('collections');
     let k = '';
     data = data.filter((item, key) => {
@@ -88,7 +91,7 @@ export class TagsConverterCoreService {
     return input;
   }
 
-  private outputStringPrepare(e, to) {
+  private outputStringPrepare(e: string, to: string): string {
     return (to !== ',' ? ' ' : '') + (to !== ' ' ? to : '') + (to === ',' ? ' ' : '') +
       e
         .trim()
@@ -96,7 +99,7 @@ export class TagsConverterCoreService {
         .toLowerCase();
   }
 
-  private prepareStringToReturn(newString, to) {
+  private prepareStringToReturn(newString: string, to: string): string {
     return ((to === ',' || to === ' ') ? newString.substr(1).trim() : newString.trim());
   }
 }

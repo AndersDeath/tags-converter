@@ -12,7 +12,7 @@ import { TagsConverterCoreService } from '@tag-converter/tags-converter-core';
 })
 export class TagsConverterMaterialComponent implements OnInit {
 
-  public version = 'v.0.0.1';
+  public version = 'v0.0.1';
   public tags: any = {
     input: '',
     output: '',

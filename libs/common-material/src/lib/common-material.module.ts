@@ -44,6 +44,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { OverlayModule } from '@angular/cdk/overlay';
 
+/**
+ * Common Angular material module
+ */
 @NgModule({
   declarations: [
   ],

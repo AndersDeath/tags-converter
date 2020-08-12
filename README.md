@@ -1,37 +1,27 @@
 # TagConverter
 
-## Demo
+## What is it?
 
-https://tags-converter.vnbstudio.ru
+Hello. My name is Vladimir Bolshakov and this is my educational pet project. For the last two years (today is 12.08.2020) I've been participating in project that is based on monorepo pattern. We use nx cli for composition Angular and Nestjs applications. You can ask me "Vladimir, why did you decide to create a new monorepo project, if you have already been working with one?" The reason is very simple. I can't implement all my arcitecture ideas in corporative project that is used by thousand of customers. So I have decided to select one of my Angular demo projects and implement server, desktop Electron based application, and Ionic based mobile application for it.
 
-## Video demonstration
+## What is here?
 
-https://youtu.be/sydgpSN2sT4
+1. **Nx**
+2. **Angular**
+3. **Angular Material**
+4. **Nestjs**
 
----
+## What is the project about?
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.2.
+Tags converter is a super simple utility for converting words sequence in format that we need. For example we have sequence of "one two three" with space separator. In utility we can select an initial separator as space and nesessary one as hash and press "convert". In this case we get the string "#one #two #three". The utility supports 3 types of separators: space, comma, and hash. You can convert words sequences in both sides. The application also supports convertation history and favorite sequences.
 
-## Development server
+## How can I run it?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install all dependencies. The best way is to use **yarn**.
+2. Run `npm run start:app` for web applications.
+3. Run `npm run start:server` for server.
 
-## Code scaffolding
+## Extra information
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Demo https://tags-converter.vnbstudio.ru
+2. Video presentation https://www.youtube.com/watch?v=OUC7hFkRmiQ (In Russian)

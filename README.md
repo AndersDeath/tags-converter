@@ -25,3 +25,6 @@ Tags converter is a super simple utility for converting words sequence in format
 
 1. Demo https://tags-converter.vnbstudio.ru
 2. Video presentation https://www.youtube.com/watch?v=OUC7hFkRmiQ (In Russian)
+
+## Task board
+https://github.com/AndersDeath/tags-converter/projects/1

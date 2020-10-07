@@ -15,7 +15,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
+
+import { firebase } from '../../../../../firebase';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 /**
@@ -40,7 +42,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserAnimationsModule,
     TagsConverterMaterialModule,
     CommonMaterialModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     FlexLayoutModule,
     TranslateModule.forRoot({

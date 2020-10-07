@@ -49,3 +49,5 @@ apps/tag-converter/src/environments/environment.ts
 
 .firebaserc
 firebase.json
+
+/apps/tag-converter/src/environments/environment.ts

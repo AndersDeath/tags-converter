@@ -48,7 +48,6 @@ export class AppComponent implements OnInit {
    * Angular lifecycle method
    */
   public ngOnInit() {
-    // this.login();
   }
 
   /**

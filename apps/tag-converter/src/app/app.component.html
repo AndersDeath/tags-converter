@@ -1,12 +1,13 @@
 <mat-toolbar color="primary" class="toolbar">
-  <mat-toolbar-row fxLayout="row" fxLayoutGap="10px">
-    <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">
-      <mat-icon>language</mat-icon> {{ lang }}
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="changeLang(languages.RU)">Русский</button>
-      <button mat-menu-item (click)="changeLang(languages.EN)">English</button>
-    </mat-menu>
+  <mat-toolbar-row fxLayoutAlign="end center" fxLayoutGap="10px">
+      <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">
+        <mat-icon>language</mat-icon> {{ lang }}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="changeLang(languages.RU)">Русский</button>
+        <button mat-menu-item (click)="changeLang(languages.EN)">English</button>
+      </mat-menu>
+      <button mat-stroked-button color="warn" (click)="login()">Login</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <tags-converter-material></tags-converter-material>

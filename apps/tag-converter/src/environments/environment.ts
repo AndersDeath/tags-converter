@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyBvQp_vaG1Xqq_SPHF6BO9sIwVrmSnN6Ao',
-    authDomain: 'vnbhelper.firebaseapp.com',
-    databaseURL: 'https://vnbhelper.firebaseio.com',
-    projectId: 'vnbhelper',
-    storageBucket: 'vnbhelper.appspot.com',
-    messagingSenderId: '582071021728',
-    appId: '1:582071021728:web:bcfa7363cad2c46c'
+    apiKey: '',
+    authDomain: '',
+    databaseURL: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: ''
   },
   startPage: '/chatbot',
 };
